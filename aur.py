@@ -309,21 +309,6 @@ def package(overlay, package_name, filename):
     error("source_package_path undef")
     return 'error'
 
-@app.route('/env')
-def index():
-    import pprint
-    return template("<pre>env={{env}}", env=pprint.pformat(request.environ))
-
-
-@app.route('/config')
-def index():
-    import pprint
-    return template("<pre>config={{config}}", config=pprint.pformat(request.app.config))
-
-@app.route('/static/<path:path>')
-def index(path):
-    return static_file(path, root='static/')
-
 def update_overlay(name):
     info("name='%s'" % name)
     overlay_path = os.path.join(OVERLAYS_DIR, name)
