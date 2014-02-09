@@ -5,7 +5,7 @@ myaur
 
 Put your custom repositories in the `overlays/` directory and they will be accessible with the standard AUR rpc at url `http://[location]/aur/[repository-name]/rpc.php`.
 
-If your custom repotitory is a github project, `myaur` can follow commits using github's WebHooks. Direct hooks to `http://[location]/aur/github-hook`. This will make `myaur` update its local copy of the repository automatically.
+If your custom repository is a github project, `myaur` can follow commits using github's WebHooks. Direct hooks to `http://[location]/aur/github-hook`. This will make `myaur` update its local copy of the repository automatically.
 
 
 ### Howto
