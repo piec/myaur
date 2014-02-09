@@ -15,7 +15,7 @@ import sh
 app = Bottle()
 ROOT = os.getcwd()
 OVERLAYS_DIR = os.path.join(ROOT, 'overlays')
-MAKEPKG = os.path.join(ROOT, 'makepkg')
+MAKEPKG = os.path.join(ROOT, 'makepkg', 'makepkg')
 
 """
 search

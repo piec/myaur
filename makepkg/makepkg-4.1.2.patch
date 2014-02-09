@@ -1,0 +1,36 @@
+--- makepkg	2014-02-09 16:38:30.669564464 +0100
++++ makepkg	2014-02-09 16:39:25.837552213 +0100
+@@ -3045,9 +3045,18 @@
+ 
+ # if we are creating a source-only package, go no further
+ if (( SOURCEONLY )); then
+-	if [[ -f $SRCPKGDEST/${pkgbase}-${fullver}${SRCEXT} ]] \
++	pkg_file="$SRCPKGDEST/${pkgbase}-${fullver}${SRCEXT}"
++
++	if [[ -f $pkg_file ]] \
+ 	     && (( ! FORCE )); then
+ 		error "$(gettext "A source package has already been built. (use %s to overwrite)")" "-f"
++	msg "$(gettext 'JsonDone
++{
++	"err":1,
++	"file":"%s",
++	"pkgbase":"%s",
++	"version":"%s"
++}')" "$pkg_file" "$pkgbase" "$fullver"
+ 		exit 1
+ 	fi
+ 
+@@ -3072,6 +3081,13 @@
+ 	fi
+ 
+ 	msg "$(gettext "Source package created: %s")" "$pkgbase ($(date))"
++	msg "$(gettext 'JsonDone
++{
++	"err":0,
++	"file":"%s",
++	"pkgbase":"%s",
++	"version":"%s"
++}')" "$pkg_file" "$pkgbase" "$fullver"
+ 	exit 0
+ fi
+ 
